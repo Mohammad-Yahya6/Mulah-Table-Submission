@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Table Submission — Mohammad Amin</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: #f7f3ee;
+      font-family: 'DM Sans', 'Times New Roman';
+      color: #1a1a1a;
+      display: flex;
+      justify-content: center;
+      padding: 64px 20px;
+    }
+
+    .page {
+      width: 100%;
+      max-width: 580px;
+    }
+
+    header {
+      margin-bottom: 52px;
+    }
+    h1 {
+      font-family: 'Playfair Display', 'Times New Roman';
+      font-size: 2.6rem;
+      line-height: 1.15;
+      margin: 0 0 14px;
+    }
+
+    .byline {
+      font-size: 14px;
+      color: #989797;
+    }
+
+    .byline strong {
+      color: #1a1a1a;
+    }
+
+    h2 {
+      font-family: 'Playfair Display', 'Times New Roman';
+      font-size: 1.3rem;
+      margin-bottom: 16px;
+    }
+
+    section {
+      margin-bottom: 52px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    thead th {
+      border-bottom: 2px solid #1a1a1a;
+      padding: 8px 0;
+      font-size: 12px;
+      font-weight: 500;
+      color: #888;
+      text-align: left;
+    }
+
+    tbody td {
+      padding: 11px 0;
+      font-size: 14px;
+      border-bottom: 1px solid #e5dfd8;
+    }
+
+    tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    #table1 td:first-child {
+      color: #aaa;
+      width: 80px;
+    }
+
+    #table1 td:last-child {
+      text-align: right;
+    }
+
+    #table2 td:first-child {
+      font-weight: 500;
+    }
+
+    #table2 td:last-child {
+      font-size: 20px;
+      font-family: 'Playfair Display', 'Times New Roman';
+      color: #e05c2a;
+      text-align: right;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <header>
+      <h1>Table Output &amp;<br/>Processing</h1>
+      <div class="byline">Submitted by <strong>Mohammad Amin Abdalla Yahya</strong></div>
+    </header>
+
+    <section>
+      <h2>Table 1</h2>
+      <table id="table1">
+        <thead><tr><th>Index</th><th style="text-align:right">Value</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Table 2</h2>
+      <table id="table2">
+        <thead><tr><th>Category</th><th style="text-align:right">Value</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </section>
+  </div>
+  
+  <script>
+    // raw data from Table 1
+    let data = {
+      A1: 41, A2: 18, A3: 21, A4: 63, A5: 2,
+      A6: 53, A7: 5,  A8: 57, A9: 60, A10: 93,
+      A11: 28, A12: 3, A13: 90, A14: 39, A15: 80,
+      A16: 88, A17: 49, A18: 60, A19: 26, A20: 28
+    };
+
+    // populate Table 1
+    let table1 = document.querySelector('#table1 tbody');
+    for (let [index, value] of Object.entries(data)) {
+      table1.innerHTML += `<tr><td>${index}</td><td>${value}</td></tr>`;
+    }
+
+    // compute and populate Table 2
+    let alpha   = data.A5 + data.A20;
+    let beta    = data.A15 / data.A7;
+    let charlie = data.A13 * data.A12;
+
+    let table2 = document.querySelector('#table2 tbody');
+    table2.innerHTML += `<tr><td>Alpha</td><td>${alpha}</td></tr>`;
+    table2.innerHTML += `<tr><td>Beta</td><td>${beta}</td></tr>`;
+    table2.innerHTML += `<tr><td>Charlie</td><td>${charlie}</td></tr>`;
+  </script>
+</body>
+</html>
